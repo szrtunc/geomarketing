@@ -1,0 +1,83 @@
+{"logLevel":"debug","message":"multithreading is set to false"}
+{"logLevel":"debug","message":"Using reflection to scan dependencies for gauge implementations..."}
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+{"logLevel":"debug","message":"gauge-java took 4044milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value."}
+{"logLevel":"debug","message":"run 'gauge config runner_connection_timeout' and verify that it is < 4044"}
+{"logLevel":"debug","message":"starting gRPC server..."}
+{"logLevel":"debug","message":"started gRPC server on port 51724"}
+{"logLevel":"info","message":"Listening on port:51724"}
+{"logLevel":"debug","message":"Scanning packages for steps"}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.checkMap' and 'org.example.StepImplementation.checkMap'"}
+{"logLevel":"debug","message":"Found Haritalar sayfasýna git haritayý kontrol et in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.surveyDataUpload' and 'org.example.StepImplementation.surveyDataUpload'"}
+{"logLevel":"debug","message":"Found Survey Verisini Yükleme in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.layersClear' and 'org.example.StepImplementation.layersClear'"}
+{"logLevel":"debug","message":"Found Katman Silme in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.layerCustomize' and 'org.example.StepImplementation.layerCustomize'"}
+{"logLevel":"debug","message":"Found Customize Layer in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.checkSurveyData' and 'org.example.StepImplementation.checkSurveyData'"}
+{"logLevel":"debug","message":"Found Survey Verisi Yüklendi Mi? in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.languagesLoop' and 'org.example.StepImplementation.languagesLoop'"}
+{"logLevel":"debug","message":"Found Sayfadaki tüm dilleri döndür. in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.checkHierarchyData' and 'org.example.StepImplementation.checkHierarchyData'"}
+{"logLevel":"debug","message":"Found Hierarchy Verisi Yüklendi Mi? in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.searchDataSetStep' and 'org.example.StepImplementation.searchDataSetStep'"}
+{"logLevel":"debug","message":"Found Oluþturulan Veri Setini Bul Ve Aç in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.administrativeBorder' and 'org.example.StepImplementation.administrativeBorder'"}
+{"logLevel":"debug","message":"Found Ýdari Alan Filtresi Oluþturma in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.checkAndUploadDataSet' and 'org.example.StepImplementation.checkAndUploadDataSet'"}
+{"logLevel":"debug","message":"Found Ýdari Alana Veri Setlerini Sýrayla Yükle Ve Sorunsuz Þekilde Yüklendi Mi? Kontrol et in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.checkLayers' and 'org.example.StepImplementation.checkLayers'"}
+{"logLevel":"debug","message":"Found Katmanlar Sorunsuz Þekilde Yüklendi Mi? in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.thematicCreate' and 'org.example.StepImplementation.thematicCreate'"}
+{"logLevel":"debug","message":"Found {} Türünde Tematik Oluþturma in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.selectLanguage' and 'org.example.StepImplementation.selectLanguage'"}
+{"logLevel":"debug","message":"Found Sayfayý{} yap in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.login' and 'org.example.StepImplementation.login'"}
+{"logLevel":"debug","message":"Found Login in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.hierarchyDataUpload' and 'org.example.StepImplementation.hierarchyDataUpload'"}
+{"logLevel":"debug","message":"Found Hierarchy Verisini Yükleme in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.clickLogo' and 'org.example.StepImplementation.clickLogo'"}
+{"logLevel":"debug","message":"Found Logoya týkla in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.gotoGetStartedPage' and 'org.example.StepImplementation.gotoGetStartedPage'"}
+{"logLevel":"debug","message":"Found Go to GeoMarketing in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.createFilter' and 'org.example.StepImplementation.createFilter'"}
+{"logLevel":"debug","message":"Found Yeni Filtre Olusturmaya Git in current project scope."}
+{"logLevel":"debug","message":"Loading Point verilerini yükle, TableWithUID : {} dataAliasName : Config Dosyasýnda Verildi  Latitude Column : {} Longitude Column : {}via reflected sources."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.layersShow' and 'org.example.StepImplementation.layersShow'"}
+{"logLevel":"debug","message":"Found Katmanlarý Göster Ve Gizle in current project scope."}
+{"logLevel":"debug","message":"Comparing 'org.example.StepImplementation.openMap' and 'org.example.StepImplementation.openMap'"}
+{"logLevel":"debug","message":"Found Haritayý Aç in current project scope."}
+{"logLevel":"debug","message":"Scanning packages for hooks"}
+{"logLevel":"debug","message":"Scanned steps (using static parsing + reflections): "}
+{"logLevel":"debug","message":"\tÝdari Alan Filtresi Oluþturma : public void administrativeBorder() throws InterruptedException"}
+{"logLevel":"debug","message":"\tKatmanlar Sorunsuz Þekilde Yüklendi Mi? : public void checkLayers() throws InterruptedException"}
+{"logLevel":"debug","message":"\tLogoya týkla : public void clickLogo() throws InterruptedException"}
+{"logLevel":"debug","message":"\tPoint verilerini yükle,\" + \" TableWithUID : {}\" + \" dataAliasName : Config Dosyasýnda Verildi \" + \" Latitude Column : {} Longitude Column : {} : public void loadData(String tableWithUID, String latitude, String longitude) throws InterruptedException"}
+{"logLevel":"debug","message":"\tPoint verilerini yükle, TableWithUID : {} dataAliasName : Config Dosyasýnda Verildi  Latitude Column : {} Longitude Column : {} : null"}
+{"logLevel":"debug","message":"\tHaritalar sayfasýna git haritayý kontrol et : public void checkMap() throws InterruptedException"}
+{"logLevel":"debug","message":"\tKatmanlarý Göster Ve Gizle : public void layersShow() throws InterruptedException"}
+{"logLevel":"debug","message":"\tLogin : public void login() throws InterruptedException"}
+{"logLevel":"debug","message":"\tÝdari Alana Veri Setlerini Sýrayla Yükle Ve Sorunsuz Þekilde Yüklendi Mi? Kontrol et : public void checkAndUploadDataSet() throws InterruptedException"}
+{"logLevel":"debug","message":"\tSayfayý{} yap : public void selectLanguage(String dil) throws InterruptedException"}
+{"logLevel":"debug","message":"\tHierarchy Verisi Yüklendi Mi? : public void checkHierarchyData() throws InterruptedException"}
+{"logLevel":"debug","message":"\tKatman Silme : public void layersClear() throws InterruptedException"}
+{"logLevel":"debug","message":"\tSurvey Verisi Yüklendi Mi? : public void checkSurveyData() throws InterruptedException"}
+{"logLevel":"debug","message":"\tGo to GeoMarketing : public void gotoGetStartedPage() throws InterruptedException"}
+{"logLevel":"debug","message":"\tCustomize Layer : public void layerCustomize()"}
+{"logLevel":"debug","message":"\tOluþturulan Veri Setini Bul Ve Aç : public void searchDataSetStep() throws InterruptedException"}
+{"logLevel":"debug","message":"\tHaritayý Aç : public void openMap() throws InterruptedException"}
+{"logLevel":"debug","message":"\tHierarchy Verisini Yükleme : public void hierarchyDataUpload() throws InterruptedException"}
+{"logLevel":"debug","message":"\tYeni Filtre Olusturmaya Git : public void createFilter() throws InterruptedException"}
+{"logLevel":"debug","message":"\t{} Türünde Tematik Oluþturma : public void thematicCreate(String thematicType) throws InterruptedException"}
+{"logLevel":"debug","message":"\tSurvey Verisini Yükleme : public void surveyDataUpload() throws InterruptedException"}
+{"logLevel":"debug","message":"\tSayfadaki tüm dilleri döndür. : public void languagesLoop() throws InterruptedException"}
+Dec 14, 2023 11:13:28 AM org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
+Dec 14, 2023 11:13:31 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 120
+Dec 14, 2023 11:13:31 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.10.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+{"logLevel":"debug","message":"Executing 'Go to GeoMarketing' using 'class org.example.StepImplementation.gotoGetStartedPage"}

@@ -1,0 +1,26 @@
+14-12-2023 10:51:54.129 [Gauge] [INFO] Initializing concepts cache with 0 concepts
+14-12-2023 10:51:54.151 [Gauge] [INFO] Initializing specs cache with 1 specs
+14-12-2023 10:51:54.151 [Gauge] [DEBUG] Adding specs from C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
+14-12-2023 10:51:54.151 [Gauge] [INFO] Initializing steps cache with 1 steps
+14-12-2023 10:51:54.151 [Gauge] [INFO] Gauge daemon initialized and listening on port: 51537
+14-12-2023 10:51:54.164 [Gauge] [DEBUG] Watching directory: C:\Users\Geovision\Desktop\Projects\geomarketing\specs
+14-12-2023 10:51:54.164 [Gauge] [DEBUG] Found 1 files
+14-12-2023 10:51:58.581 [Gauge] [DEBUG] Api Request Received: messageType:GetLanguagePluginLibPathRequest  messageId:5  libPathRequest:{language:"java"}
+14-12-2023 10:51:58.584 [Gauge] [DEBUG] Sending API response: messageType:GetLanguagePluginLibPathResponse  messageId:5  libPathResponse:{path:"C:\\Users\\Geovision\\AppData\\Roaming\\gauge\\plugins\\java\\0.10.2\\libs"}
+14-12-2023 10:52:43.590 [Gauge] [INFO] Initializing concepts cache with 0 concepts
+14-12-2023 10:52:43.592 [Gauge] [INFO] Initializing specs cache with 1 specs
+14-12-2023 10:52:43.592 [Gauge] [DEBUG] Adding specs from C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
+14-12-2023 10:52:43.592 [Gauge] [INFO] Initializing steps cache with 1 steps
+14-12-2023 10:52:43.592 [Gauge] [INFO] Gauge daemon initialized and listening on port: 51566
+14-12-2023 10:52:43.604 [Gauge] [DEBUG] Watching directory: C:\Users\Geovision\Desktop\Projects\geomarketing\specs
+14-12-2023 10:52:43.604 [Gauge] [DEBUG] Found 1 files
+14-12-2023 11:02:48.385 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Open the Gauge homepage"}
+14-12-2023 11:02:48.386 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Open the Gauge homepage"  parameterizedStepValue:"Open the Gauge homepage"}}
+14-12-2023 11:02:48.418 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Go to Gauge Get Started Page"}
+14-12-2023 11:02:48.418 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Go to Gauge Get Started Page"  parameterizedStepValue:"Go to Gauge Get Started Page"}}
+14-12-2023 11:02:48.432 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Ensure installation instructions are available"}
+14-12-2023 11:02:48.432 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Ensure installation instructions are available"  parameterizedStepValue:"Ensure installation instructions are available"}}
+14-12-2023 11:09:45.285 [Gauge] [DEBUG] Spec file added / modified: C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
+14-12-2023 11:09:45.313 [Gauge] [DEBUG] Spec file added / modified: C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
+14-12-2023 11:11:20.708 [Gauge] [DEBUG] Spec file added / modified: C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
+14-12-2023 11:11:20.744 [Gauge] [DEBUG] Spec file added / modified: C:\Users\Geovision\Desktop\Projects\geomarketing\specs\example.spec
