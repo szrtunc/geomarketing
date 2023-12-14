@@ -60,6 +60,10 @@ Adres Arama
 * Haritayı Aç
 
 
+GeoCode
+-------
+*GeoCode verisini yükle
+
 
 Tum Islemler
 ------------

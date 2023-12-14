@@ -93,8 +93,8 @@ public class StepImplementation {
         uploadDataPage.loadToFileInput.sendKeys("C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\point_kadikoy.xlsx");
         wait.until(ExpectedConditions.visibilityOf(uploadDataPage.fileVisibility));
         uploadDataPage.loadContinueButton.click();
-        wait.until(ExpectedConditions.textToBePresentInElement(uploadDataPage.percentValue, "100%"));
-        wait.until(ExpectedConditions.visibilityOf(uploadDataPage.tableWithUIDButton));
+        //wait.until(ExpectedConditions.textToBePresentInElement(uploadDataPage.percentValue, "100%"));
+        wait.until(ExpectedConditions.elementToBeClickable(uploadDataPage.tableWithUIDButton));
 
         uploadDataPage.tableWithUIDButton.click();
         for (WebElement uID : uploadDataPage.tableWithUID) {
@@ -457,7 +457,7 @@ public class StepImplementation {
         uploadDataPage.aliasName.sendKeys(aliasNameColumn);
         uploadDataPage.resultContinue.click();
         dataRepositoryPage.notification.isDisplayed();
-        Thread.sleep(15000);
+        Thread.sleep(35000);
 
     }
 
@@ -591,6 +591,23 @@ public class StepImplementation {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Step("GeoCode verisini yükle")
+    public void loadGeoCode() throws InterruptedException {
+        createMapPage.loadCustomerData.click();
+        try {
+            uploadDataPage.loadDataScreenVisibility.isDisplayed();
+        }catch(Exception e){
+            createMapPage.loadCustomerData.click();
+            Thread.sleep(5000);
+        }
+        uploadDataPage.loadToFileInput.sendKeys("C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\point_kadikoy_0.xlsx");
+        uploadDataPage.loadContinueButton.click();
+        selectByValue(new Select(uploadDataPage.tableWithUIDGeoCode),"gvg_uid");
+
+
+
     }
 /*
     @Step("debug")

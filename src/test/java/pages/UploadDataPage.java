@@ -45,7 +45,10 @@ public class UploadDataPage {
     @FindBy(xpath = "//div[@class='css-ikzlcq']/div[1]/div[2]/select/option")
     public List<WebElement> tableWithUID;
 
-    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[1]/div[2]")
+    @FindBy(xpath = "//div[@class='css-ikzlcq']/div[1]/div[2]/select")
+    public WebElement tableWithUIDGeoCode;
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[1]/div[2]/select")
     public WebElement tableWithUIDButton;
 
     @FindBy(xpath = "//div[@class='MuiFormControl-root MuiTextField-root css-i44wyl']/div/input")
