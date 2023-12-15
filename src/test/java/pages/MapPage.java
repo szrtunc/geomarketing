@@ -201,6 +201,7 @@ public class MapPage {
     @FindBy(xpath = "//div[@role='presentation']/div/ul/li")
     public List<WebElement> filterSelectILILCEMAHColumn;
 
+
     @FindBy(xpath = "//div[text()='Successfully deleted.']")
     public WebElement layerDeletedNotification;
 

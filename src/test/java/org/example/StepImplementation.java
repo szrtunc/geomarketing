@@ -14,7 +14,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class StepImplementation {
+public class StepImplementation extends Methods {
 
     WebDriver driver;
     LoginPage loginPage = new LoginPage();
@@ -70,54 +70,9 @@ public class StepImplementation {
         }
     }
 
-    @Step("Point verilerini yükle," +
-            " TableWithUID : <tableWithUID>" +
-            " dataAliasName : Config Dosyasında Verildi " +
-            " Latitude Column : <latitude>" +
-            " Longitude Column : <longitude>")
-    public void loadData(String tableWithUID, String latitude, String longitude) throws InterruptedException {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        createMapPage.loadCustomerData.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        createMapPage.loadCustomerData.click();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-        wait.until(ExpectedConditions.visibilityOf(uploadDataPage.loadToUrlInput));
-        uploadDataPage.loadToFileInput.sendKeys("C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\point_kadikoy.xlsx");
-        wait.until(ExpectedConditions.visibilityOf(uploadDataPage.fileVisibility));
-        uploadDataPage.loadContinueButton.click();
-        //wait.until(ExpectedConditions.textToBePresentInElement(uploadDataPage.percentValue, "100%"));
-        wait.until(ExpectedConditions.elementToBeClickable(uploadDataPage.tableWithUIDButton));
-
-        uploadDataPage.tableWithUIDButton.click();
-        for (WebElement uID : uploadDataPage.tableWithUID) {
-            if (uID.getText().equalsIgnoreCase(tableWithUID)) {
-                uID.click();
-            }
-        }
-        uploadDataPage.aliasName.sendKeys(ConfigReader.getProperty("dataAliasName"));
-
-        uploadDataPage.latitudeColumnButton.click();
-        for (WebElement ltd : uploadDataPage.latitudeColumn) {
-            if (ltd.getText().equalsIgnoreCase(latitude)) {
-                ltd.click();
-            }
-        }
-        uploadDataPage.longitudeColumnButton.click();
-        for (WebElement lng : uploadDataPage.longitudeColumn) {
-            if (lng.getText().equalsIgnoreCase(longitude)) {
-                lng.click();
-            }
-        }
-        uploadDataPage.resultContinue.click();
-
+    @Step("Point verilerini yükle : " + " TableWithUID," + " dataAliasName," + " Latitude Column," + " Longitude Column")
+    public void loadPointDataStep() throws InterruptedException {
+        loadPointData();
         try {
             wait.until(ExpectedConditions.visibilityOf(uploadDataPage.isLoaded));
             System.out.println("Veriseti Yüklendi");
@@ -132,6 +87,7 @@ public class StepImplementation {
     public void checkMap() throws InterruptedException {
         goMapsPageAndClickMap();
         driver.navigate().back();
+
     }
 
     @Step("Logoya tıkla")
@@ -212,7 +168,7 @@ public class StepImplementation {
         uploadDataPage.loadDataScreenVisibility.isDisplayed();
         uploadDataPage.loadToFileInput.sendKeys("C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\survey_kadikoy.xlsx");
         uploadDataPage.loadContinueButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(uploadDataPage.aliasName)).sendKeys(ConfigReader.getProperty("surveyDataName"));
+        wait.until(ExpectedConditions.elementToBeClickable(uploadDataPage.aliasNameInput)).sendKeys(ConfigReader.getProperty("surveyDataName"));
 
         selectByValue(new Select(uploadDataPage.baseLayerColumn), ConfigReader.getProperty("surveyBaseLayerValue"));
         selectByValue(new Select(uploadDataPage.relatedUIDColumn), ConfigReader.getProperty("surveyRelatedUidValue"));
@@ -221,7 +177,6 @@ public class StepImplementation {
         selectByValue(new Select(uploadDataPage.surveyGroupingColumn), ConfigReader.getProperty("surveyGroupingValue"));
         uploadDataPage.resultContinue.click();
         Thread.sleep(3000);
-
     }
 
     @Step("Survey Verisi Yüklendi Mi?")
@@ -264,7 +219,7 @@ public class StepImplementation {
         uploadDataPage.hierarchyNewLevelButton.click();
         selectByValue(new Select(uploadDataPage.hierarchyLevel5Column), ConfigReader.getProperty("hierarchyLevel5"));
 
-        uploadDataPage.aliasName.sendKeys(ConfigReader.getProperty("hierarchyAliasName"));
+        uploadDataPage.aliasNameInput.sendKeys(ConfigReader.getProperty("hierarchyAliasName"));
         uploadDataPage.resultContinue.click();
         Thread.sleep(3000);
     }
@@ -393,210 +348,10 @@ public class StepImplementation {
         mapPage.filterPreview.click();
     }
 
-
-    //METHODS
-    public void filterSelectIL(String ilName) {
-        mapPage.filterInputIL.click();
-        for (WebElement filterIl : mapPage.filterSelectILILCEMAHColumn) {
-            if (filterIl.getText().equalsIgnoreCase(ilName)) {
-                filterIl.click();
-                break;
-            }
-        }
-    }
-
-    public void filterSelectILCE(String ilceName) {
-        mapPage.filterInputILCE.click();
-        for (WebElement filterIlce : mapPage.filterSelectILILCEMAHColumn) {
-            if (filterIlce.getText().equalsIgnoreCase(ilceName)) {
-                filterIlce.click();
-                break;
-            }
-        }
-    }
-
-    public void filterSelectMAH(String mahName) {
-        mapPage.filterInputMah.click();
-        for (WebElement filterMah : mapPage.filterSelectILILCEMAHColumn) {
-            if (filterMah.getText().equalsIgnoreCase(mahName)) {
-                filterMah.click();
-                break;
-            }
-        }
-    }
-
-    public void loadDataSet(String idColumn, String displayNameColumn, String aliasNameColumn, String parentColumn, String path) throws InterruptedException {
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        dataRepositoryPage.fileUploadButton.click();
-        uploadDataPage.loadDataScreenVisibility.isDisplayed();
-        uploadDataPage.uploadZipFile.sendKeys(path);
-        uploadDataPage.loadContinueButton.click();
-        String storedAliasName = aliasNameColumn;
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(uploadDataPage.idColumnButton));
-        } catch (Exception e) {
-            System.out.println("Dosya inceleniyor aşamasını geçemedi, 60 saniye bekledi. ");
-        }
-
-        Select idColumns = new Select(uploadDataPage.idColumnButton);
-        idColumns.selectByValue(idColumn);
-        uploadDataPage.idColumnButton.sendKeys(Keys.TAB);
-
-        if (uploadDataPage.columnCount.size() == 4) {
-            Select parentColumns = new Select(uploadDataPage.parentsColumnButton);
-            parentColumns.selectByValue(parentColumn);
-            uploadDataPage.parentsColumnButton.sendKeys(Keys.TAB);
-
-            Select displayNameColumnsIL = new Select(uploadDataPage.displayNameColumnButtonIL);
-            displayNameColumnsIL.selectByValue(displayNameColumn);
-        } else {
-            Select displayNameColumns = new Select(uploadDataPage.displayNameColumnButton);
-            displayNameColumns.selectByValue(displayNameColumn);
-        }
-        uploadDataPage.aliasName.sendKeys(aliasNameColumn);
-        uploadDataPage.resultContinue.click();
-        dataRepositoryPage.notification.isDisplayed();
-        Thread.sleep(35000);
-
-    }
-
-    public void loadDataSetIL() throws InterruptedException {
-        loadDataSet(ConfigReader.getProperty("dataSetIdIL"), ConfigReader.getProperty("dataSetDisplayNameIL"), ConfigReader.getProperty("dataSetAliasNameIL"), null, "C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\IL_KADIKOY_region.zip");
-    }
-
-    public void loadDataSetILCE() throws InterruptedException {
-        loadDataSet(ConfigReader.getProperty("dataSetIdILCE"), ConfigReader.getProperty("dataSetDisplayNameILCE"), ConfigReader.getProperty("dataSetAliasNameILCE"), ConfigReader.getProperty("parentColumnILCE"), "C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\ILCE_KADIKOY_region.zip");
-    }
-
-    public void loadDataSetMah() throws InterruptedException {
-        loadDataSet(ConfigReader.getProperty("dataSetIdMah"), ConfigReader.getProperty("dataSetDisplayNameMah"), ConfigReader.getProperty("dataSetAliasNameMah"), ConfigReader.getProperty("parentColumnMah"), "C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\MAHALLE_KADIKOY_region.zip");
-    }
-
-    public void selectByValue(Select select, String value) {
-        select.selectByValue(value);
-    }
-
-    public void refreshAndPerformSearch() throws InterruptedException {
-        //driver.navigate().refresh();
-        searchDataSet();
-        //dataRepositoryPage.fileAdministratorArea.click();
-    }
-
-    public void goMapsPageAndClickMap() throws InterruptedException {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        headerPage.mapsButton.click();
-        try {
-            wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
-        } catch (Exception e) {
-            driver.navigate().refresh();
-            wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
-        }
-
-        while (true) {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            String scroolheight = js.executeScript("return document.body.scrollHeight").toString();
-            //System.out.println(scroolheight);
-
-            for (WebElement map : mapsPage.maps) {
-                if (map.getText().equalsIgnoreCase(ConfigReader.getProperty("dataAliasName"))) {
-                    map.click();
-                    System.out.println("----Map ACILDI----");
-                    Thread.sleep(3000);
-                    return;
-                }
-            }
-            WebElement enAltElement = mapsPage.maps.get(mapsPage.maps.size() - 1);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", enAltElement);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //System.out.println(scroolheight.equals( js.executeScript("return document.body.scrollHeight").toString()));
-            if (scroolheight.equals(js.executeScript("return document.body.scrollHeight").toString())) {
-                driver.navigate().refresh();
-            }
-        }
-
-    }
-
-    public void checkLayerMethod(String layerName) throws InterruptedException {
-        boolean layerFound = false;
-        for (WebElement layer : mapPage.layers) {
-            if (layer.getText().equalsIgnoreCase(layerName)) {
-                System.out.println(layerName + " KATMANI BULUNDU");
-                layerFound = true;
-                break;
-            }
-        }
-        if (layerFound == false) {
-            System.out.println(layerName + " KATMANI BULUNAMADI!!!");
-        }
-    }
-
-    public void layerShowClickMethod(String layerName) throws InterruptedException {
-        //dynamic Xpath
-        driver.findElement(By.xpath("//div[contains(@class,'MuiBox-root')]//div[@draggable]//h6[text()='" + layerName + "']/parent::div//button[1]"))
-                .click();
-        Thread.sleep(500);
-        WebElement layerVisibilityNotification = driver.findElement(By.xpath("//div[text()='" + layerName + " katmanı gösterildi']"));
-        String layerVMessage = (layerVisibilityNotification.isDisplayed()) ? layerName + " (Katmani Gosterildi)" : layerName + "Katmani GOSTERILEMEDI.....!!!";
-        System.out.println(layerVMessage);
-    }
-
-    public void layerHidingClickMethod(String layerName) throws InterruptedException {
-        driver.findElement(By.xpath("//div[contains(@class,'MuiBox-root')]//div[@draggable]//h6[text()='" + layerName + "']/parent::div//button[1]"))
-                .click();
-        Thread.sleep(500);
-        WebElement layerHidingNotification = driver.findElement(By.xpath("//div[text()='" + layerName + " katmanı gizlendi']"));
-        String layerHMessage = (layerHidingNotification.isDisplayed()) ? layerName + " (Katmani Gizlendi)" : layerName + "Katmani GIZLENEMEDI.....!!!";
-        System.out.println(layerHMessage);
-    }
-
-    public void layerOptionsClickMethod(String layerName) throws InterruptedException {
-        driver.findElement(By.xpath("//div[contains(@class,'MuiBox-root')]//div[@draggable]//h6[text()='" + layerName + "']/parent::div//button[2]")).click();
-    }
-
-    public void layerDeleteMethod(String layerName) throws InterruptedException {
-        layerOptionsClickMethod(layerName);
-        mapPage.layerDelete.click();
-        if (mapPage.layerDeletedNotification.isDisplayed()) {
-            System.out.println(layerName + "Katmani Basariyla Silindi");
-        } else {
-            System.out.println(layerName + "Katmani Silinemedi");
-        }
-    }
-
-    public void searchDataSet() throws InterruptedException {
-        //headerPage.dataRepositoryButton.click();
-        driver.navigate().refresh();
-        Thread.sleep(5000);
-        driver.navigate().refresh();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.visibilityOf(dataRepositoryPage.dataSetVisibility));
-        while (true) {
-            for (WebElement dataset : dataRepositoryPage.dataSets) {
-                if (dataset.getText().equalsIgnoreCase(ConfigReader.getProperty("dataAliasName"))) {
-                    System.out.println("dataset bulundu :" + ConfigReader.getProperty("dataAliasName"));
-                    dataset.click();
-                    return;
-                }
-            }
-            WebElement enAltElement = dataRepositoryPage.dataSets.get(dataRepositoryPage.dataSets.size() - 1);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", enAltElement);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     @Step("GeoCode verisini yükle")
     public void loadGeoCode() throws InterruptedException {
         createMapPage.loadCustomerData.click();
-        try {
+        try{
             uploadDataPage.loadDataScreenVisibility.isDisplayed();
         }catch(Exception e){
             createMapPage.loadCustomerData.click();
@@ -604,12 +359,21 @@ public class StepImplementation {
         }
         uploadDataPage.loadToFileInput.sendKeys("C:\\Users\\Geovision\\Desktop\\geoMarketingDosyalar2\\point_kadikoy_0.xlsx");
         uploadDataPage.loadContinueButton.click();
-        selectByValue(new Select(uploadDataPage.tableWithUIDGeoCode),"gvg_uid");
+        selectByValue(new Select(uploadDataPage.tableWithUID),ConfigReader.getProperty("uid"));
+        uploadDataPage.aliasNameInput.sendKeys(ConfigReader.getProperty("dataAliasNameGeoCode"));
+        selectByValue(new Select(uploadDataPage.latitudeColumn),ConfigReader.getProperty("latitudeColumn"));
+        selectByValue(new Select(uploadDataPage.longitudeColumn),ConfigReader.getProperty("longitudeColumn"));
+        uploadDataPage.resultContinue.click();
 
 
 
     }
-/*
+
+
+
+
+
+    /*
     @Step("debug")
     public void implementation1() {
         System.out.println(ConfigReader.getProperty("hierarchyLevel4"));

@@ -42,26 +42,23 @@ public class UploadDataPage {
     @FindBy(xpath = "//div[@class='MuiBox-root css-0']")
     public WebElement mapsColumnsVisibility;
 
-    @FindBy(xpath = "//div[@class='css-ikzlcq']/div[1]/div[2]/select/option")
-    public List<WebElement> tableWithUID;
-
     @FindBy(xpath = "//div[@class='css-ikzlcq']/div[1]/div[2]/select")
-    public WebElement tableWithUIDGeoCode;
+    public WebElement tableWithUID;
 
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[1]/div[2]/select")
     public WebElement tableWithUIDButton;
 
     @FindBy(xpath = "//div[@class='MuiFormControl-root MuiTextField-root css-i44wyl']/div/input")
-    public WebElement aliasName;
+    public WebElement aliasNameInput;
 
-    @FindBy(xpath = "//div[@class='MuiBox-root css-0']/div[2]/div[1]/div/div/select/option")
-    public List<WebElement> latitudeColumn;
+    @FindBy(xpath = "//div[@class='MuiBox-root css-0']/div[2]/div[1]/div/div/select")
+    public WebElement latitudeColumn;
 
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[3]/div[2]/div[1]/div/div")
     public WebElement latitudeColumnButton;
 
-    @FindBy(xpath = "//div[@class='MuiBox-root css-0']/div[2]/div[2]/div/div/select/option")
-    public List<WebElement> longitudeColumn;
+    @FindBy(xpath = "//div[@class='MuiBox-root css-0']/div[2]/div[2]/div/div/select")
+    public WebElement longitudeColumn;
 
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[3]/div[2]/div[2]/div/div")
     public WebElement longitudeColumnButton;
