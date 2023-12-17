@@ -3,7 +3,6 @@ Getting Started with Gauge
 
 Giris SSO
 =========
-//* Login ol ve sayfayı Türkçe yap.
 * Go to GeoMarketing
 * Login
 //* Sayfadaki tüm dilleri döndür.
@@ -51,6 +50,7 @@ Filtre Islemleri
 * Haritayı Aç
 * Yeni Filtre Olusturmaya Git
 * İdari Alan Filtresi Oluşturma
+* İdari Alan Filtresi Çalışıyor mu?
 
 
 
@@ -58,6 +58,8 @@ Adres Arama
 -----------
 * Logoya tıkla
 * Haritayı Aç
+* Adres Arama Yap
+
 
 
 GeoCode

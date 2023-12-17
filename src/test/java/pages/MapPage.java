@@ -73,6 +73,9 @@ public class MapPage {
     @FindBy(xpath = "//div[@class='MuiDialogContent-root css-jkrf21']/div/div/input")
     public WebElement filterSaveInputName;
 
+    @FindBy(xpath = "//div[@class='MuiBox-root css-1wxgbrp']/h4")
+    public WebElement numberOfPointsListed;
+
 
     //İkinci buton içeriği
     @FindBy(xpath = "//div[@class='css-1i1hwqo']/div[2]")
