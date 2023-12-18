@@ -64,8 +64,9 @@ public class StepImplementation {
     @Step("Sayfayı<dil> yap")
     public void selectLanguage(String dil) throws InterruptedException {
         for (WebElement x : headerPage.languages) {
-            if (x.getText().equalsIgnoreCase(dil)) {
+            if (x.getText().equalsIgnoreCase(dil)){
                 x.click();
+                break;
             }
         }
     }
@@ -73,6 +74,7 @@ public class StepImplementation {
     @Step("Point verilerini yükle : " + " TableWithUID," + " dataAliasName," + " Latitude Column," + " Longitude Column")
     public void loadPointDataStep() throws InterruptedException {
         loadPointData();
+        wait=new WebDriverWait(driver,Duration.ofSeconds(70));
         try {
             wait.until(ExpectedConditions.visibilityOf(uploadDataPage.isLoaded));
             System.out.println("Veriseti Yüklendi");
@@ -127,13 +129,13 @@ public class StepImplementation {
                 if (fileIL.getText().equalsIgnoreCase(ConfigReader.getProperty("dataSetAliasNameIL"))) {
                     try {
                         loadDataSetILCE();
-                        Thread.sleep(20000);
+                        //Thread.sleep(50000);
                         System.out.println(ConfigReader.getProperty("dataSetAliasNameILCE") + " verisi YUKLENDI");
                         searchDataSet();
                         //wait=new WebDriverWait(driver,Duration.ofSeconds(60));
                         //wait.until(ExpectedConditions.elementToBeClickable(dataRepositoryPage.fileAdministratorArea));
                         dataRepositoryPage.fileAdministratorArea.click();
-                        Thread.sleep(5000);
+                        //Thread.sleep(5000);
                     } catch (Exception e) {
                         System.out.println(ConfigReader.getProperty("dataSetAliasNameILCE") + " verisi YÜKLENEMEDİ!!!");
                     }
@@ -142,7 +144,7 @@ public class StepImplementation {
                             for (int i = 0; i < dataRepositoryPage.loadedFiles.size(); i++) {
                                 if (fileILCE.getText().equalsIgnoreCase(ConfigReader.getProperty("dataSetAliasNameILCE"))) {
                                     loadDataSetMah();
-                                    Thread.sleep(20000);
+                                    //Thread.sleep(50000);
                                     System.out.println(ConfigReader.getProperty("dataSetAliasNameMah") + " verisi YUKLENDI");
                                     searchDataSet();
                                     //wait=new WebDriverWait(driver,Duration.ofSeconds(60));
@@ -250,10 +252,10 @@ public class StepImplementation {
 
     @Step("Katmanlar Sorunsuz Şekilde Yüklendi Mi?")
     public void checkLayers() throws InterruptedException {
-        mapPage.mapTitle.isDisplayed();
+        /*mapPage.mapTitle.isDisplayed();
         Actions actions = new Actions(driver);
         actions.moveToElement(mapPage.secondButton).perform();
-        mapPage.layerControlButton.click();
+        mapPage.layerControlButton.click();*/
         checkLayerMethod(ConfigReader.getProperty("dataAliasName"));
         checkLayerMethod(ConfigReader.getProperty("dataSetAliasNameIL"));
         checkLayerMethod(ConfigReader.getProperty("dataSetAliasNameILCE"));
@@ -347,7 +349,7 @@ public class StepImplementation {
     public void administrativeBorderFilterCreate() throws InterruptedException {
         filterSelectIL("İstanbul");
         filterSelectILCE("Kadıköy");
-        //filterSelectMAH("19 Mayıs Mh.");
+        filterSelectMAH("19 Mayıs Mh.");
     }
 
     @Step("İdari Alan Filtresi Çalışıyor mu?")
@@ -359,7 +361,7 @@ public class StepImplementation {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        Assert.assertEquals(mapPage.numberOfPointsListed.getText(), "12591");
+        Assert.assertEquals(mapPage.numberOfPointsListed.getText(), "631");
     }
 
 
@@ -380,12 +382,63 @@ public class StepImplementation {
         selectByValue(new Select(uploadDataPage.longitudeColumn), ConfigReader.getProperty("longitudeColumn"));
         uploadDataPage.resultContinue.click();
     }
+
     @Step("Adres Arama Yap")
-    public void searchAddress() throws InterruptedException{
-        Actions actions=new Actions(driver);
+    public void searchAddress() throws InterruptedException {
+        Actions actions = new Actions(driver);
         actions.moveToElement(mapPage.secondButton).perform();
         mapPage.addressSearchButton.click();
     }
+
+    @Step("Katmanlar Kısmına git")
+    public void goLayers() {
+        mapPage.mapTitle.isDisplayed();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(mapPage.secondButton).perform();
+        mapPage.layerControlButton.click();
+    }
+
+    @Step("Gruplama Yap")
+    public void groupingProcess() throws InterruptedException {
+        layerShowClickMethod(ConfigReader.getProperty("dataAliasName"));
+        layerOptionsClickMethod(ConfigReader.getProperty("dataAliasName"));
+
+        WebElement enAltElement = mapPage.layers.get(mapPage.layers.size() - 1);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", enAltElement);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+           e.printStackTrace();
+        }
+        mapPage.dataGroupOptionButton.click();
+        mapPage.addNewGroupColumnButton.click();
+        mapPage.selectGroupColumnName.sendKeys("trade_channel"+Keys.DOWN+Keys.ENTER);
+        mapPage.dataGroupButton.click();
+        mapPage.applyGroupToMapButton.click();
+        Thread.sleep(3000);
+        Assert.assertTrue(mapPage.dataGroupVisibility.isDisplayed(),"Noktalar Haritalandirilamadi");
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public void loadPointData() throws InterruptedException {
@@ -421,23 +474,16 @@ public class StepImplementation {
     public void goMapsPageAndClickMap() throws InterruptedException {
         headerPage.mapsButton.click();
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        /*FluentWait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofMillis(500))
-                .ignoring(NoSuchElementException.class);*/
-
-        try {
+        //try {
             wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
-        } catch (Exception e) {
-            driver.navigate().refresh();
-            wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
-        }
-
+        //} catch (Exception e) {
+          //  driver.navigate().refresh();
+           // wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
+        //}
         while (true) {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             String scroolheight = js.executeScript("return document.body.scrollHeight").toString();
             //System.out.println(scroolheight);
-
             for (WebElement map : mapsPage.maps) {
                 if (map.getText().equalsIgnoreCase(ConfigReader.getProperty("dataAliasName"))) {
                     map.click();
@@ -526,7 +572,7 @@ public class StepImplementation {
         uploadDataPage.aliasNameInput.sendKeys(aliasNameColumn);
         uploadDataPage.resultContinue.click();
         dataRepositoryPage.notification.isDisplayed();
-        //Thread.sleep(40000);
+        Thread.sleep(50000);
 
     }
 

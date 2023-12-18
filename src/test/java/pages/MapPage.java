@@ -191,13 +191,24 @@ public class MapPage {
     @FindBy(xpath = "//button[text()='Sonuçları Haritaya Uygula']")
     public WebElement applyResultsMapButton;
 
-    @FindBy(xpath = "")
-    public WebElement count;
+    @FindBy(xpath = "//div[@class='MuiListItemIcon-root css-oy1s0i']/following-sibling::div//span[text()='Veri Grupla']")
+    public WebElement dataGroupOptionButton;
 
-    @FindBy(xpath = "")
-    public WebElement countList;
+    @FindBy(xpath = "//div[@class='MuiBox-root css-hpgf8j']/button")
+    public WebElement dataGroupButton;
+
+    @FindBy(xpath = "//div[@class='css-3nm9yt']/button[3]")
+    public WebElement applyGroupToMapButton;
+
+    @FindBy(xpath = "//div[@class='css-1vg6agc']/button")
+    public WebElement addNewGroupColumnButton;
+
+    @FindBy(xpath = "//div[@class='css-1yjo05o']//input[@placeholder='Seçim yapınız']")
+    public WebElement selectGroupColumnName;
 
 
+    @FindBy(xpath = "//div[@class='MuiBox-root css-aidsh6']/following-sibling::div[2]")
+    public WebElement dataGroupVisibility;
 
 
     //Filtreler Kısmı

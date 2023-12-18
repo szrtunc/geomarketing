@@ -9,7 +9,7 @@ Giris SSO
 * Sayfayı"Turkish" yap
 
 
-Veri Yukleme
+Veri Yükleme
 ------------
 * Point verilerini yükle :  TableWithUID, dataAliasName, Latitude Column, Longitude Column
 * Logoya tıkla
@@ -26,6 +26,7 @@ Katman Islemleri
 ----------------
 * Logoya tıkla
 * Haritayı Aç
+* Katmanlar Kısmına git
 * Katmanlar Sorunsuz Şekilde Yüklendi Mi?
 * Katmanları Göster Ve Gizle
 * Katman Silme
@@ -60,6 +61,12 @@ Adres Arama
 * Haritayı Aç
 * Adres Arama Yap
 
+Veri Gruplama Yapılabiliyor mu?
+------------------------------
+* Logoya tıkla
+* Haritayı Aç
+* Katmanlar Kısmına git
+* Gruplama Yap
 
 
 GeoCode
