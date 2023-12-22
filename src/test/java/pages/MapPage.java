@@ -210,6 +210,8 @@ public class MapPage {
     @FindBy(xpath = "//div[@class='MuiBox-root css-aidsh6']/following-sibling::div[2]")
     public WebElement dataGroupVisibility;
 
+    @FindBy(xpath = "//div[@class='react-resizable-handle']")
+    public WebElement dataInformationPageUp;
 
     //Filtreler Kısmı
     @FindBy(xpath = "//div[@role='presentation']/div/ul/li")

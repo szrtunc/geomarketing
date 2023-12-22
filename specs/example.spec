@@ -11,7 +11,7 @@ Giris SSO
 
 Veri Yükleme
 ------------
-* Point verilerini yükle :  TableWithUID, dataAliasName, Latitude Column, Longitude Column
+* Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column
 * Logoya tıkla
 * Haritalar sayfasına git haritayı kontrol et
 * Oluşturulan Veri Setini Bul Ve Aç
@@ -71,12 +71,16 @@ Veri Gruplama Yapılabiliyor mu?
 
 GeoCode
 -------
-* GeoCode verisini yükle
+//* GeoCode verisini yükle
+* Logoya tıkla
+* GeoCode Haritayı Aç
+* GeoCode doğru şekilde çalışıyor mu?
+
 
 
 Tum Islemler
 ------------
-* Point verilerini yükle :  TableWithUID, dataAliasName, Latitude Column, Longitude Column
+* Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column
 * Logoya tıkla
 * Haritalar sayfasına git haritayı kontrol et
 * Oluşturulan Veri Setini Bul Ve Aç
@@ -96,7 +100,6 @@ Tum Islemler
 //* Logoya tıkla
 //* Haritayı Aç
 * Yeni Filtre Olusturmaya Git
-
 
 //
 //dene

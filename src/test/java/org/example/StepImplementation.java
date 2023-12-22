@@ -36,9 +36,13 @@ public class StepImplementation {
 
     @Step("Login")
     public void login() throws InterruptedException {
+        Thread.sleep(20000);
         loginPage.userNameBox.sendKeys(ConfigReader.getProperty("username"));
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
         loginPage.loginButton.click();
+        Thread.sleep(20000);
+       // DriverFactory.saveHar();
+
     }
 
     @Step("Sayfadaki tüm dilleri döndür.")
@@ -64,17 +68,17 @@ public class StepImplementation {
     @Step("Sayfayı<dil> yap")
     public void selectLanguage(String dil) throws InterruptedException {
         for (WebElement x : headerPage.languages) {
-            if (x.getText().equalsIgnoreCase(dil)){
+            if (x.getText().equalsIgnoreCase(dil)) {
                 x.click();
                 break;
             }
         }
     }
 
-    @Step("Point verilerini yükle : " + " TableWithUID," + " dataAliasName," + " Latitude Column," + " Longitude Column")
+    @Step("Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column")
     public void loadPointDataStep() throws InterruptedException {
         loadPointData();
-        wait=new WebDriverWait(driver,Duration.ofSeconds(70));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(70));
         try {
             wait.until(ExpectedConditions.visibilityOf(uploadDataPage.isLoaded));
             System.out.println("Veriseti Yüklendi");
@@ -102,6 +106,11 @@ public class StepImplementation {
     @Step("Haritayı Aç")
     public void openMap() throws InterruptedException {
         goMapsPageAndClickMap();
+    }
+
+    @Step("GeoCode Haritayı Aç")
+    public void openGeoCodeMap() throws InterruptedException{
+        goMapsPageAndClickGeoCodeMap();
     }
 
     @Step("Oluşturulan Veri Setini Bul Ve Aç")
@@ -265,9 +274,7 @@ public class StepImplementation {
 
     @Step("Katmanları Göster Ve Gizle")
     public void layersShow() throws InterruptedException {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(mapPage.secondButton).perform();
-        mapPage.layerControlButton.click();
+        layerControlClick();
         //Katmanları görünür yap
         layerShowClickMethod(ConfigReader.getProperty("dataAliasName"));
         layerShowClickMethod(ConfigReader.getProperty("dataSetAliasNameIL"));
@@ -382,6 +389,16 @@ public class StepImplementation {
         selectByValue(new Select(uploadDataPage.longitudeColumn), ConfigReader.getProperty("longitudeColumn"));
         uploadDataPage.resultContinue.click();
     }
+    @Step("GeoCode doğru şekilde çalışıyor mu?")
+    public void checkGeoCode() throws InterruptedException{
+        layerControlClick();
+        layerShowClickMethod(ConfigReader.getProperty("dataAliasNameGeoCode"));
+        layerOptionsClickMethod(ConfigReader.getProperty("dataAliasNameGeoCode"));
+        mapPage.dataButton.click();
+        Actions actions=new Actions(driver);
+        actions.clickAndHold(mapPage.dataInformationPageUp).moveByOffset(0, -100).release().perform();
+
+    }
 
     @Step("Adres Arama Yap")
     public void searchAddress() throws InterruptedException {
@@ -408,36 +425,17 @@ public class StepImplementation {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         mapPage.dataGroupOptionButton.click();
         mapPage.addNewGroupColumnButton.click();
-        mapPage.selectGroupColumnName.sendKeys("trade_channel"+Keys.DOWN+Keys.ENTER);
+        mapPage.selectGroupColumnName.sendKeys("trade_channel" + Keys.DOWN + Keys.ENTER);
         mapPage.dataGroupButton.click();
         mapPage.applyGroupToMapButton.click();
         Thread.sleep(3000);
-        Assert.assertTrue(mapPage.dataGroupVisibility.isDisplayed(),"Noktalar Haritalandirilamadi");
-
+        Assert.assertTrue(mapPage.dataGroupVisibility.isDisplayed(), "Noktalar Haritalandirilamadi");
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -475,10 +473,10 @@ public class StepImplementation {
         headerPage.mapsButton.click();
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         //try {
-            wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
+        wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
         //} catch (Exception e) {
-          //  driver.navigate().refresh();
-           // wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
+        //  driver.navigate().refresh();
+        // wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
         //}
         while (true) {
             JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -505,6 +503,40 @@ public class StepImplementation {
             }
         }
 
+    }
+    public void goMapsPageAndClickGeoCodeMap()throws InterruptedException{
+        headerPage.mapsButton.click();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        //try {
+        wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
+        //} catch (Exception e) {
+        //  driver.navigate().refresh();
+        // wait.until(ExpectedConditions.visibilityOfAllElements(mapsPage.maps));
+        //}
+        while (true) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            String scroolheight = js.executeScript("return document.body.scrollHeight").toString();
+            //System.out.println(scroolheight);
+            for (WebElement map : mapsPage.maps) {
+                if (map.getText().equalsIgnoreCase(ConfigReader.getProperty("dataAliasNameGeoCode"))) {
+                    map.click();
+                    System.out.println("----Map ACILDI----");
+                    Thread.sleep(3000);
+                    return;
+                }
+            }
+            WebElement enAltElement = mapsPage.maps.get(mapsPage.maps.size() - 1);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", enAltElement);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //System.out.println(scroolheight.equals( js.executeScript("return document.body.scrollHeight").toString()));
+            if (scroolheight.equals(js.executeScript("return document.body.scrollHeight").toString())) {
+                driver.navigate().refresh();
+            }
+        }
     }
 
     public void searchDataSet() throws InterruptedException {
@@ -675,6 +707,11 @@ public class StepImplementation {
         select.selectByValue(value);
     }
 
+    public void layerControlClick()throws InterruptedException{
+        Actions actions = new Actions(driver);
+        actions.moveToElement(mapPage.secondButton).perform();
+        mapPage.layerControlButton.click();
+    }
 
 
 }

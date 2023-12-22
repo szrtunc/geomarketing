@@ -13,6 +13,8 @@ public class LoginPage {
 
     @FindBy(xpath ="//div[@class='MuiBox-root css-1qm1lh']")
     public WebElement signInText;
+    @FindBy(xpath ="//body")
+    public WebElement body;
 
     @FindBy(xpath = "//input[@placeholder='Kullanıcı Adı']")
     public WebElement userNameBox;
