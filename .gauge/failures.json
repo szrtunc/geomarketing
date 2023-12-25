@@ -5,7 +5,5 @@
 		"--hide-suggestion",
 		"--simple-console"
 	],
-	"FailedItems": [
-		"specs\\example.spec:64"
-	]
+	"FailedItems": []
 }

@@ -36,11 +36,28 @@ public class StepImplementation {
 
     @Step("Login")
     public void login() throws InterruptedException {
-        Thread.sleep(20000);
+
+      /* JavascriptExecutor js= ((JavascriptExecutor) driver);
+        Object subsrictionStatus=js.executeScript("return substrictionStatus");
+        while (subsrictionStatus.equals(false)) {
+            Thread.sleep(1000);
+            subsrictionStatus=js.executeScript("return substrictionStatus");
+        }*/
+        Thread.sleep(10000);
+        driver.navigate().refresh();
         loginPage.userNameBox.sendKeys(ConfigReader.getProperty("username"));
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
         loginPage.loginButton.click();
-        Thread.sleep(20000);
+        Thread.sleep(3000);
+        driver.navigate().refresh();
+        loginPage.userNameBox.sendKeys(ConfigReader.getProperty("username"));
+        loginPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
+        loginPage.loginButton.click();
+        Thread.sleep(3000);
+
+
+
+
        // DriverFactory.saveHar();
 
     }
