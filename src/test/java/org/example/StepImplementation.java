@@ -398,13 +398,31 @@ public class StepImplementation {
             createMapPage.loadCustomerData.click();
             Thread.sleep(5000);
         }
+        WebDriverWait waitGeoCodeOperations=new WebDriverWait(driver,Duration.ofSeconds(40));
         uploadDataPage.loadToFileInput.sendKeys(ConfigReader.getProperty("dataPathGeoCode"));
         uploadDataPage.loadContinueButton.click();
+        waitGeoCodeOperations.until(ExpectedConditions.visibilityOf(uploadDataPage.tableWithUID));
         selectByValue(new Select(uploadDataPage.tableWithUID), ConfigReader.getProperty("uid"));
         uploadDataPage.aliasNameInput.sendKeys(ConfigReader.getProperty("dataAliasNameGeoCode"));
         selectByValue(new Select(uploadDataPage.latitudeColumn), ConfigReader.getProperty("latitudeColumn"));
         selectByValue(new Select(uploadDataPage.longitudeColumn), ConfigReader.getProperty("longitudeColumn"));
         uploadDataPage.resultContinue.click();
+        waitGeoCodeOperations.until(ExpectedConditions.visibilityOf(uploadDataPage.geoCodeIncorrectDataVisibility));
+        uploadDataPage.resultContinue.click();
+        waitGeoCodeOperations.until(ExpectedConditions.visibilityOf(uploadDataPage.geoCodeColumnSelectTableVisibility));
+
+        String [] values =ConfigReader.getPropertyArray("addressColumnsGeoCode");
+        for(int i=0; i<values.length;i++){
+            uploadDataPage.geoCodeColumnAddButton.click();
+            int x=i+1;
+            WebElement addressColum=driver.findElement(By.xpath("//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu']/div["+x+"]/div/div/div/select"));
+            selectByValue(new Select(addressColum),values[x-1]);
+            Thread.sleep(2000);
+        }
+        uploadDataPage.resultContinue.click();
+
+
+
     }
     @Step("GeoCode doğru şekilde çalışıyor mu?")
     public void checkGeoCode() throws InterruptedException{

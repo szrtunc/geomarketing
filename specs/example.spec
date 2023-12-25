@@ -9,7 +9,7 @@ Giris SSO
 * Sayfayı"Turkish" yap
 
 
-Veri Yükleme
+Point Veri Yükleme
 ------------
 * Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column
 * Logoya tıkla
@@ -71,10 +71,13 @@ Veri Gruplama Yapılabiliyor mu?
 
 GeoCode
 -------
-//* GeoCode verisini yükle
+* GeoCode verisini yükle
 * Logoya tıkla
 * GeoCode Haritayı Aç
 * GeoCode doğru şekilde çalışıyor mu?
+
+
+
 
 
 

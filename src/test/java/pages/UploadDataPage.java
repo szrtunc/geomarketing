@@ -66,8 +66,17 @@ public class UploadDataPage {
     @FindBy(xpath = "//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1cz5dpq']/button[2]")
     public WebElement resultContinue;
 
+    @FindBy(xpath = "//table[@class='MuiTable-root css-rrew4p']")
+    public WebElement geoCodeColumnSelectTableVisibility;
+
+    @FindBy(xpath = "//div[@class='css-9b020o']/button")
+    public WebElement geoCodeColumnAddButton;
+
     @FindBy(xpath = "//div[@class='MuiDialogContent-root css-jkrf21']/h6")
     public WebElement isLoaded;
+
+    @FindBy(xpath = "//div[@class='MuiBox-root css-0']/h6[text()='Hatalı Kayıtlar Bulundu']")
+    public WebElement geoCodeIncorrectDataVisibility;
 
     @FindBy(xpath = "//div[@class='MuiDialogActions-root MuiDialogActions-spacing css-1cz5dpq']/button")
     public WebElement completedButton;
