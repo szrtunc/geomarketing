@@ -16,7 +16,6 @@ import java.time.Duration;
 
 
 public class StepImplementation {
-
     WebDriver driver;
     LoginPage loginPage = new LoginPage();
     CreateMapPage createMapPage = new CreateMapPage();
@@ -43,17 +42,17 @@ public class StepImplementation {
             Thread.sleep(1000);
             subsrictionStatus=js.executeScript("return substrictionStatus");
         }*/
-        Thread.sleep(10000);
-        driver.navigate().refresh();
+       // Thread.sleep(10000);
+       /* driver.navigate().refresh();
         loginPage.userNameBox.sendKeys(ConfigReader.getProperty("username"));
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
         loginPage.loginButton.click();
         Thread.sleep(3000);
-        driver.navigate().refresh();
+        driver.navigate().refresh();*/
         loginPage.userNameBox.sendKeys(ConfigReader.getProperty("username"));
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("password"));
         loginPage.loginButton.click();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
 
 
@@ -399,6 +398,7 @@ public class StepImplementation {
             Thread.sleep(5000);
         }
         WebDriverWait waitGeoCodeOperations=new WebDriverWait(driver,Duration.ofSeconds(40));
+        Thread.sleep(2000);
         uploadDataPage.loadToFileInput.sendKeys(ConfigReader.getProperty("dataPathGeoCode"));
         uploadDataPage.loadContinueButton.click();
         waitGeoCodeOperations.until(ExpectedConditions.visibilityOf(uploadDataPage.tableWithUID));
@@ -414,13 +414,12 @@ public class StepImplementation {
         String [] values =ConfigReader.getPropertyArray("addressColumnsGeoCode");
         for(int i=0; i<values.length;i++){
             uploadDataPage.geoCodeColumnAddButton.click();
-            int x=i+1;
-            WebElement addressColum=driver.findElement(By.xpath("//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu']/div["+x+"]/div/div/div/select"));
-            selectByValue(new Select(addressColum),values[x-1]);
+            WebElement addressColum=driver.findElement(By.xpath("//div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-tuxzvu']/div["+Integer.toString(i+1)+"]/div/div/div/select"));
+            selectByValue(new Select(addressColum),values[i]);
             Thread.sleep(2000);
         }
         uploadDataPage.resultContinue.click();
-
+        waitGeoCodeOperations.until(ExpectedConditions.visibilityOf(createMapPage.geoCodeResultVisibility));
 
 
     }

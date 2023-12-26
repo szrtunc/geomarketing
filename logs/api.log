@@ -3380,3 +3380,72 @@
 25-12-2023 09:08:54.519 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Sayfayı{} yap"  parameterizedStepValue:"Sayfayı<Turkish> yap"  parameters:"Turkish"}}
 25-12-2023 09:08:55.206 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"\"Isı Haritası\" Türünde Tematik Oluşturma"}
 25-12-2023 09:08:55.207 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"{} Türünde Tematik Oluşturma"  parameterizedStepValue:"<Isı Haritası> Türünde Tematik Oluşturma"  parameters:"Isı Haritası"}}
+26-12-2023 10:35:56.569 [Gauge] [INFO] Initializing concepts cache with 0 concepts
+26-12-2023 10:35:56.582 [Gauge] [INFO] Initializing specs cache with 1 specs
+26-12-2023 10:35:56.582 [Gauge] [DEBUG] Adding specs from C:\Users\geovi\OneDrive\Masaüstü\Yeni klasör\geomarketing\specs\example.spec
+26-12-2023 10:35:56.582 [Gauge] [INFO] Initializing steps cache with 1 steps
+26-12-2023 10:35:56.582 [Gauge] [INFO] Gauge daemon initialized and listening on port: 56063
+26-12-2023 10:35:56.589 [Gauge] [DEBUG] Watching directory: C:\Users\geovi\OneDrive\Masaüstü\Yeni klasör\geomarketing\specs
+26-12-2023 10:35:56.589 [Gauge] [DEBUG] Found 1 files
+26-12-2023 10:37:23.946 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Go to GeoMarketing"}
+26-12-2023 10:37:23.947 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Go to GeoMarketing"  parameterizedStepValue:"Go to GeoMarketing"}}
+26-12-2023 10:37:24.257 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Login"}
+26-12-2023 10:37:24.257 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Login"  parameterizedStepValue:"Login"}}
+26-12-2023 10:37:24.264 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Sayfayı\"Turkish\" yap"}
+26-12-2023 10:37:24.264 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Sayfayı{} yap"  parameterizedStepValue:"Sayfayı<Turkish> yap"  parameters:"Turkish"}}
+26-12-2023 10:37:24.266 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Sayfadaki tüm dilleri döndür."}
+26-12-2023 10:37:24.266 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Sayfadaki tüm dilleri döndür."  parameterizedStepValue:"Sayfadaki tüm dilleri döndür."}}
+26-12-2023 10:37:24.266 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Sayfayı<dil> yap"}
+26-12-2023 10:37:24.266 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Sayfayı{} yap"  parameterizedStepValue:"Sayfayı<dil> yap"  parameters:"dil"}}
+26-12-2023 10:37:24.267 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column"}
+26-12-2023 10:37:24.267 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column"  parameterizedStepValue:"Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column"}}
+26-12-2023 10:37:24.268 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Logoya tıkla"}
+26-12-2023 10:37:24.268 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Logoya tıkla"  parameterizedStepValue:"Logoya tıkla"}}
+26-12-2023 10:37:24.269 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Haritalar sayfasına git haritayı kontrol et"}
+26-12-2023 10:37:24.270 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Haritalar sayfasına git haritayı kontrol et"  parameterizedStepValue:"Haritalar sayfasına git haritayı kontrol et"}}
+26-12-2023 10:37:24.271 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Oluşturulan Veri Setini Bul Ve Aç"}
+26-12-2023 10:37:24.272 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Oluşturulan Veri Setini Bul Ve Aç"  parameterizedStepValue:"Oluşturulan Veri Setini Bul Ve Aç"}}
+26-12-2023 10:37:24.272 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Haritayı Aç"}
+26-12-2023 10:37:24.273 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Haritayı Aç"  parameterizedStepValue:"Haritayı Aç"}}
+26-12-2023 10:37:24.273 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"GeoCode Haritayı Aç"}
+26-12-2023 10:37:24.273 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"GeoCode Haritayı Aç"  parameterizedStepValue:"GeoCode Haritayı Aç"}}
+26-12-2023 10:37:24.274 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"İdari Alana Veri Setlerini Sırayla Yükle Ve Sorunsuz Şekilde Yüklendi Mi? Kontrol et"}
+26-12-2023 10:37:24.274 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"İdari Alana Veri Setlerini Sırayla Yükle Ve Sorunsuz Şekilde Yüklendi Mi? Kontrol et"  parameterizedStepValue:"İdari Alana Veri Setlerini Sırayla Yükle Ve Sorunsuz Şekilde Yüklendi Mi? Kontrol et"}}
+26-12-2023 10:37:24.275 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Survey Verisini Yükleme"}
+26-12-2023 10:37:24.276 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Survey Verisini Yükleme"  parameterizedStepValue:"Survey Verisini Yükleme"}}
+26-12-2023 10:37:24.276 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Survey Verisi Yüklendi Mi?"}
+26-12-2023 10:37:24.277 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Survey Verisi Yüklendi Mi?"  parameterizedStepValue:"Survey Verisi Yüklendi Mi?"}}
+26-12-2023 10:37:24.278 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Hierarchy Verisini Yükleme"}
+26-12-2023 10:37:24.279 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Hierarchy Verisini Yükleme"  parameterizedStepValue:"Hierarchy Verisini Yükleme"}}
+26-12-2023 10:37:24.280 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Hierarchy Verisi Yüklendi Mi?"}
+26-12-2023 10:37:24.280 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Hierarchy Verisi Yüklendi Mi?"  parameterizedStepValue:"Hierarchy Verisi Yüklendi Mi?"}}
+26-12-2023 10:37:24.283 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Katmanlar Kısmına git"}
+26-12-2023 10:37:24.283 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Katmanlar Kısmına git"  parameterizedStepValue:"Katmanlar Kısmına git"}}
+26-12-2023 10:37:24.284 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Katmanlar Sorunsuz Şekilde Yüklendi Mi?"}
+26-12-2023 10:37:24.284 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Katmanlar Sorunsuz Şekilde Yüklendi Mi?"  parameterizedStepValue:"Katmanlar Sorunsuz Şekilde Yüklendi Mi?"}}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Katmanları Göster Ve Gizle"}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Katmanları Göster Ve Gizle"  parameterizedStepValue:"Katmanları Göster Ve Gizle"}}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Katman Silme"}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Katman Silme"  parameterizedStepValue:"Katman Silme"}}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"<thematicType> Türünde Tematik Oluşturma"}
+26-12-2023 10:37:24.285 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"{} Türünde Tematik Oluşturma"  parameterizedStepValue:"<thematicType> Türünde Tematik Oluşturma"  parameters:"thematicType"}}
+26-12-2023 10:37:24.286 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Customize Layer"}
+26-12-2023 10:37:24.286 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Customize Layer"  parameterizedStepValue:"Customize Layer"}}
+26-12-2023 10:37:24.286 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Yeni Filtre Olusturmaya Git"}
+26-12-2023 10:37:24.286 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Yeni Filtre Olusturmaya Git"  parameterizedStepValue:"Yeni Filtre Olusturmaya Git"}}
+26-12-2023 10:37:24.286 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"İdari Alan Filtresi Oluşturma"}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"İdari Alan Filtresi Oluşturma"  parameterizedStepValue:"İdari Alan Filtresi Oluşturma"}}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"İdari Alan Filtresi Çalışıyor mu?"}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"İdari Alan Filtresi Çalışıyor mu?"  parameterizedStepValue:"İdari Alan Filtresi Çalışıyor mu?"}}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"GeoCode verisini yükle"}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"GeoCode verisini yükle"  parameterizedStepValue:"GeoCode verisini yükle"}}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"GeoCode doğru şekilde çalışıyor mu?"}
+26-12-2023 10:37:24.287 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"GeoCode doğru şekilde çalışıyor mu?"  parameterizedStepValue:"GeoCode doğru şekilde çalışıyor mu?"}}
+26-12-2023 10:37:24.288 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Adres Arama Yap"}
+26-12-2023 10:37:24.288 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Adres Arama Yap"  parameterizedStepValue:"Adres Arama Yap"}}
+26-12-2023 10:37:24.292 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"\"Isı Haritası\" Türünde Tematik Oluşturma"}
+26-12-2023 10:37:24.292 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"{} Türünde Tematik Oluşturma"  parameterizedStepValue:"<Isı Haritası> Türünde Tematik Oluşturma"  parameters:"Isı Haritası"}}
+26-12-2023 10:37:24.297 [Gauge] [DEBUG] Api Request Received: messageType:GetStepValueRequest  messageId:4  stepValueRequest:{stepText:"Gruplama Yap"}
+26-12-2023 10:37:24.297 [Gauge] [DEBUG] Sending API response: messageType:GetStepValueResponse  messageId:4  stepValueResponse:{stepValue:{stepValue:"Gruplama Yap"  parameterizedStepValue:"Gruplama Yap"}}
+26-12-2023 12:02:06.145 [Gauge] [DEBUG] Spec file added / modified: C:\Users\geovi\OneDrive\Masaüstü\Yeni klasör\geomarketing\specs\example.spec
+26-12-2023 12:02:06.159 [Gauge] [DEBUG] Spec file added / modified: C:\Users\geovi\OneDrive\Masaüstü\Yeni klasör\geomarketing\specs\example.spec

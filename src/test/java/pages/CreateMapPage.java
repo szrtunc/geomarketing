@@ -22,6 +22,8 @@ public class CreateMapPage {
 
     @FindBy(xpath = "//div[@class='css-l5c1s3']/div[3]")
     public WebElement load100;
+    @FindBy(xpath = "//div[@id='notistack-snackbar']")
+    public WebElement geoCodeResultVisibility;
 
 
 

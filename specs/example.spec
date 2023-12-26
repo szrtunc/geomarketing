@@ -9,7 +9,7 @@ Giris SSO
 * Sayfayı"Turkish" yap
 
 
-Point Veri Yükleme
+Veri Yükleme
 ------------
 * Point verilerini yükle : TableWithUID, dataAliasName, Latitude Column, Longitude Column
 * Logoya tıkla

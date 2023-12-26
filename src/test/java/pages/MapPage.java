@@ -213,6 +213,9 @@ public class MapPage {
     @FindBy(xpath = "//div[@class='react-resizable-handle']")
     public WebElement dataInformationPageUp;
 
+    @FindBy(xpath = "//div[@data-field='latitude']/div[@title]")
+    public WebElement dataGeoCodeLatitudeValues;
+
     //Filtreler Kısmı
     @FindBy(xpath = "//div[@role='presentation']/div/ul/li")
     public List<WebElement> filterSelectILILCEMAHColumn;
